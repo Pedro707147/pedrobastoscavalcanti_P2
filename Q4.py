@@ -1,2 +1,3 @@
 git add -A
-git commit
+git commit -m 
+git push 
