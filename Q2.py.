@@ -1,1 +1,57 @@
+import copy
 
+def inverter(entramatriz):
+
+    Matriz = copy.deepcopy(entradamatriz)
+
+    dalt_matriz = Matriz[0][0] * Matriz[1][1] - Matriz[0][1] * Matriz[1][0]
+    
+    Matriz[0][0], Matriz[1][1] = Matriz[1][1], Matriz[0][0]
+
+    if (dalt_matriz == 0):
+        return None
+
+    dalt_matriz = 1/dalt_matriz
+
+    Matriz[0][1] = -1 *Matriz[0][1]
+    Matriz[1][0] = -1 *Matriz[1][0]
+
+    for linha in range(2):
+        Matriz[linha][0] *= dalt_matriz
+        Matriz[linha][1] *= dalt_matriz
+
+    return Matriz
+
+def main():
+    Matriz = [0] * 2
+
+    for linha in range(2):
+        Matriz[linha] = [0] * 2
+
+    a = float(input())
+    b = float(input())
+    c = float(input())
+    d = float(input())
+
+    Matriz[0][0] = a
+    Matriz[0][1] = b
+    Matriz[1][0] = c
+    Matriz[1][1] = d
+    
+    inverte_matriz = inverter(Matriz)
+
+    if inverte_matriz == None:
+        print("Nao e inversivel")
+
+    else:
+        for linha in range(2):
+            for coluna in range(2):
+                print(matriz[linha][coluna], end=('\t'))
+            print()
+
+        for linha in range(2):
+            for coluna in range(2):
+                print(inverte_matriz[linha][coluna], end=('\t'))
+            print()
+
+main()
