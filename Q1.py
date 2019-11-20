@@ -4,15 +4,12 @@ def letraA(data):
 	return dici_data
 
 def letraB(ATIVO):
+	if (len(ATIVO) == 4):
+		ATIVO = ATIVO[:3]
 
-	ati = True
-	if(ATIVO == strSIM):
-		ati = True
-
-	elif(ATIVO == strNAO):
-	
-		ati = False
-	return ati
+	if (ATIVO[0] == "S"):
+		return True
+	return False
 
 def letraC(Varia):
 
@@ -52,7 +49,7 @@ def main():
 	for linha in lista:
 		cadastro = {‘CPF’:lista[0], ‘NOME’:lista[1], ‘DATA_DE_NASCIMENTO’:lista[3], /
 				‘DATA_DE_CADASTRO’:lista[3], ‘ATIVO’:lista[4] }
-		lista_dic += [cadastro]
+		lista_dic.append (cadastro)
 
 	print(lista_dic)
 
